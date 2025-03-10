@@ -9,7 +9,7 @@ const Computers = ({ isMobile }) => {
 
   return (
     <mesh>
-      <hemisphereLight intensity={0.15} groundColor="black" />
+      <hemisphereLight intensity={0.20} groundColor="black" />
       <spotLight
         position={[-20, 50, 10]}
         angle={0.12}
@@ -22,7 +22,7 @@ const Computers = ({ isMobile }) => {
       <primitive
         object={scene}
         scale={isMobile ? 0.6 : 1.3}
-        position={isMobile ? [0, -1, -1] : [0, -3.5, -2]}
+        position={isMobile ? [0, -1, -1] : [0, -4.4, -2]}
         rotation={[-0.01, -0.2, -0.1]}
       />
     </mesh>
@@ -81,7 +81,6 @@ const ComputersCanvas = () => {
         <Preload all />
       </Canvas>
 
-      {/* Updated Hint Overlay */}
       {showHint && (
         <div className="interaction-hint">
           <div className="hint-content">

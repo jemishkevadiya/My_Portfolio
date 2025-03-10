@@ -6,7 +6,7 @@ import "./Navbar.css";
 const Navbar = () => {
   const [toggle, setToggle] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const location = useLocation(); // To track the current route for active state
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,21 +18,19 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Define nav items as an array for DRY code
   const navItems = [
     { name: "About", path: "/#about" },
     { name: "Work", path: "/#work" },
     { name: "Contact", path: "/#contact" },
   ];
 
-  // Function to handle smooth scrolling
   const handleNavClick = (path) => {
     const sectionId = path.split("#")[1];
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
     }
-    setToggle(false); // Close mobile menu on click
+    setToggle(false); 
   };
 
   return (
@@ -46,29 +44,24 @@ const Navbar = () => {
             setToggle(false);
           }}
         >
-          {/* Removed "Jemish" - You can add a logo or leave it empty */}
         </Link>
 
-        {/* Desktop Navigation */}
         <ul className="nav-list desktop">
           {navItems.map((item) => (
             <li key={item.name} className="nav-item">
-              <Link
-                to={item.path}
-                className={`nav-link ${
-                  location.hash === `#${item.name.toLowerCase()}`
+              <div
+                className={`nav-link ${location.hash === `#${item.name.toLowerCase()}`
                     ? "active"
                     : "inactive"
-                }`}
+                  }`}
                 onClick={() => handleNavClick(item.path)}
               >
                 {item.name}
-              </Link>
+              </div>
             </li>
           ))}
         </ul>
 
-        {/* Mobile Menu Toggle */}
         <div className="menu-toggle mobile">
           <button
             aria-label={toggle ? "Close menu" : "Open menu"}
@@ -78,22 +71,19 @@ const Navbar = () => {
             {toggle ? <FaTimes /> : <FaBars />}
           </button>
 
-          {/* Mobile Navigation */}
           <div className={`mobile-menu ${toggle ? "show" : "hide"}`}>
             <ul className="mobile-nav-list">
               {navItems.map((item) => (
                 <li key={item.name} className="mobile-nav-item">
-                  <Link
-                    to={item.path}
-                    className={`mobile-nav-link ${
-                      location.hash === `#${item.name.toLowerCase()}`
+                  <div
+                    className={`mobile-nav-link ${location.hash === `#${item.name.toLowerCase()}`
                         ? "active"
                         : "inactive"
-                    }`}
+                      }`}
                     onClick={() => handleNavClick(item.path)}
                   >
                     {item.name}
-                  </Link>
+                  </div>
                 </li>
               ))}
             </ul>
