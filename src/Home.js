@@ -3,14 +3,19 @@ import Navbar from "./components/Navbar";
 import ComputersCanvas from "./components/ComputersCanvas";
 import ShinyText from "./components/ShinyText";
 import "./Home.css";
-import postmanIcon from "./components/assets/postman.png"; 
+import postmanIcon from "./components/assets/postman_icon.png";
+import RollingGallery from "./components/RollingGallery";
+import certificate1 from "./components/assets/fullStack_development_ss.jpg"; 
 
 const Home = () => {
-  const [showSummary, setShowSummary] = useState(false);
   const [bodyType, setBodyType] = useState("raw");
   const [content, setContent] = useState(`{\n  "About": "Jemish Kevadiya"\n}`);
   const [responseContent, setResponseContent] = useState(null);
-  const [isPretty, setIsPretty] = useState(false); 
+  const [isPretty, setIsPretty] = useState(false);
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
 
   const handleScrollToAbout = (e) => {
     e.preventDefault();
@@ -21,7 +26,6 @@ const Home = () => {
   };
 
   const handleSearch = () => {
-    setShowSummary(true);
     const summary = `
 Jemish Kevadiya is A highly skilled and versatile developer with expertise in computer programming, analysis, web development, and mobile development. With a solid foundation in DevOps and a practical application of data science, I have successfully delivered projects that span across multiple technologies. My proficiency in creating robust, scalable, and efficient solutions ensures that I contribute effectively to both frontend and backend development. Passionate about adopting modern development practices, I strive to optimize workflows, improve performance, and drive innovation in every project I undertake.
     `;
@@ -187,6 +191,15 @@ Jemish Kevadiya is A highly skilled and versatile developer with expertise in co
             )}
           </div>
         </div>
+      </section>
+
+      <section className="certificates-section">
+        <h2 className="section-title">Certificates & Awards</h2>
+        <RollingGallery
+          autoplay={true}
+          pauseOnHover={true}
+          images={[certificate1, certificate1, certificate1, certificate1]}
+        />
       </section>
     </div>
   );
