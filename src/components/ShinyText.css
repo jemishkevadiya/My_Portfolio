@@ -1,19 +1,17 @@
-/* ShinyText.css */
 .shiny-text {
-    color: #b5b5b5a4; /* Base color for the text */
+    color: #b5b5b5a4; 
     background: linear-gradient(
       120deg,
       rgba(255, 255, 255, 0) 40%, 
-      rgba(255, 255, 255, 1) 50%,  /* Stronger white color for a brighter shine */
+      rgba(255, 255, 255, 1) 50%, 
       rgba(255, 255, 255, 0) 60%
     );
     background-size: 200% 100%;
     -webkit-background-clip: text;
     background-clip: text;
-    display: block; /* Ensure the text is inline and stacked properly */
-    opacity: 1; /* Ensure text is visible */
+    display: inline-block; 
     animation: shine 5s linear infinite;
-    animation-fill-mode: forwards; /* Ensures that the animation applies even after completion */
+    animation-fill-mode: forwards; 
   }
   
   @keyframes shine {
@@ -27,5 +25,9 @@
   
   .shiny-text.disabled {
     animation: none;
+  }
+  
+  .jemish-name {
+    color: orange; 
   }
   

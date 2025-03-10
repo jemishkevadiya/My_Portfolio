@@ -1,6 +1,5 @@
-// ShinyText.js
 import React from 'react';
-import './ShinyText.css'; // Import the shiny text CSS for animation
+import './ShinyText.css'; 
 
 const ShinyText = ({ text, disabled = false, speed = 5, className = '' }) => {
   const animationDuration = `${speed}s`;
