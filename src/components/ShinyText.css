@@ -1,33 +1,24 @@
 .shiny-text {
-    color: #b5b5b5a4; 
-    background: linear-gradient(
-      120deg,
-      rgba(255, 255, 255, 0) 40%, 
-      rgba(255, 255, 255, 1) 50%, 
-      rgba(255, 255, 255, 0) 60%
-    );
-    background-size: 200% 100%;
-    -webkit-background-clip: text;
-    background-clip: text;
-    display: inline-block; 
-    animation: shine 5s linear infinite;
-    animation-fill-mode: forwards; 
-  }
-  
-  @keyframes shine {
-    0% {
-      background-position: 100%;
-    }
-    100% {
-      background-position: -100%;
-    }
-  }
-  
-  .shiny-text.disabled {
-    animation: none;
-  }
-  
-  .jemish-name {
-    color: orange; 
-  }
-  
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.8),
+    transparent
+  );
+  background-size: 200px 100%;
+  background-repeat: repeat-x;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  position: relative;
+  display: inline-block;
+}
+
+.shiny-text::before {
+  content: attr(data-text);
+  position: absolute;
+  color: inherit;
+  z-index: -1;
+  left: 0;
+  top: 0;
+}

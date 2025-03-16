@@ -8,7 +8,7 @@ const RollingGallery = ({ autoplay = false, pauseOnHover = false, images = [] })
   const faceCount = images.length || 1; 
   const faceWidth = (cylinderWidth / faceCount) * 1.5;
   const dragFactor = 0.05;
-  const radius = cylinderWidth / (2 * Math.PI);
+  const radius = cylinderWidth / (1.4 * Math.PI);
 
   const rotation = useMotionValue(0);
   const controls = useAnimation();
@@ -40,11 +40,14 @@ const RollingGallery = ({ autoplay = false, pauseOnHover = false, images = [] })
       const newRotation = rotation.get() - 360 / faceCount;
       controls.start({
         rotateY: newRotation,
-        transition: { duration: 2, ease: "linear" },
+        transition: {
+          duration: 5, 
+          ease: [0.25, 0.1, 0.25, 1], 
+        },
       }).then(() => {
         rotation.set(newRotation); 
       });
-    }, 2000);
+    }, 5000); 
   };
 
   useEffect(() => {
