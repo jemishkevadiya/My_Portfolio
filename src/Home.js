@@ -30,8 +30,10 @@ import reactNative from "./components/assets/reactNative.svg";
 import reactNativeIcon from "./components/assets/reactNative.svg";
 import github from "./components/assets/github.svg";
 import linkedin from "./components/assets/linkedin.svg";
-import resumeIcon from "./components/assets/resume.svg"; 
+import resumeIcon from "./components/assets/resume.svg";
 import coverLetterIcon from "./components/assets/cover-letter.svg";
+import firebaseIcon from "./components/assets/firebase.svg"
+import bootstrapIcon from "./components/assets/bootstrap.svg"
 
 const Home = () => {
   const [bodyType, setBodyType] = useState("raw");
@@ -80,7 +82,7 @@ const Home = () => {
 
   const handleSearch = () => {
     const summary = `
-Jemish Kevadiya is a highly skilled and versatile developer with expertise in computer programming, analysis, web development, and mobile development. With a solid foundation in DevOps and a practical application of data science, I have successfully delivered projects that span across multiple technologies. My proficiency in creating robust, scalable, and efficient solutions ensures that I contribute effectively to both frontend and backend development. Passionate about adopting modern development practices, I strive to optimize workflows, improve performance, and drive innovation in every project I undertake.
+Jemish Kevadiya is a highly skilled and versatile developer with expertise in computer programming, analysis, web development, and mobile development. With a solid foundation in DevOps and a practical application of data science, he has successfully delivered projects that span across multiple technologies. His proficiency in creating robust, scalable, and efficient solutions ensures that he contribute effectively to both frontend and backend development. Passionate about adopting modern development practices, he strive to optimize workflows, improve performance, and drive innovation in every project he undertake.
     `;
     setResponseContent(summary);
     if (isPretty) {
@@ -161,6 +163,7 @@ Jemish Kevadiya is a highly skilled and versatile developer with expertise in co
     { icon: <img src={javaIcon} alt="Java" className="skill-icon" />, label: "Java", color: "#222" },
     { icon: <img src={htmlIcon} alt="HTML" className="skill-icon" />, label: "HTML", color: "#222" },
     { icon: <img src={cssIcon} alt="CSS" className="skill-icon" />, label: "CSS", color: "#222" },
+    { icon: <img src={bootstrapIcon} alt="BootStrap" className="skill-icon" />, label: "BootStrap", color: "#222" },
     { icon: <img src={reactNative} alt="ReactNative" className="skill-icon" />, label: "React", color: "#222" },
     { icon: <img src={csharpIcon} alt="C#" className="skill-icon" />, label: "C#", color: "#222" },
     { icon: <img src={pythonIcon} alt="Python" className="skill-icon" />, label: "Python", color: "#222" },
@@ -170,41 +173,45 @@ Jemish Kevadiya is a highly skilled and versatile developer with expertise in co
     { icon: <img src={postgresqlIcon} alt="PostgreSQL" className="skill-icon" />, label: "PostgreSQL", color: "#222" },
     { icon: <img src={devopsIcon} alt="DevOps" className="skill-icon" />, label: "DevOps", color: "#222" },
     { icon: <img src={docker} alt="Docker" className="skill-icon" />, label: "Docker", color: "#222" },
+    { icon: <img src={firebaseIcon} alt="FireBase" className="skill-icon" />, label: "FireBase", color: "#222" },
     { icon: <img src={xcode} alt="Xcode" className="skill-icon" />, label: "Xcode", color: "#222" },
     { icon: <img src={postman} alt="Postman" className="skill-icon" />, label: "Postman", color: "#222" },
     { icon: <img src={github} alt="GitHub" className="skill-icon" />, label: "GitHub", color: "#222" },
+    
   ];
 
-  const projects = [
+  const professionalProject = {
+    title: "XploreOn Web App",
+    description:
+      "A comprehensive travel booking web application integrating Booking.com APIs with a custom itinerary generator. This capstone project features a responsive UI built with React, a robust backend using Node.js and MongoDB, and real-time data syncing for flight, hotel, and activity bookings. Key functionalities include user authentication, personalized travel recommendations, and an interactive map interface. Developed as part of a professional academic project, it showcases my ability to manage full-stack development, API integration, and deployment workflows.",
+    technologies: [jsIcon, reactNativeIcon, mongodbIcon, firebaseIcon],
+    githubLink: "https://github.com/jemishkevadiya/XploreOn_Frontend/tree/jemish",
+  };
+
+  const personalProjects = [
     {
       title: "XploreOn Mobile App",
-      description: "A travel booking mobile app for IOS & Android integrating Booking.com APIs",
+      description: "XploreOn Mobile App is a travel platform that allows users to search and book flights, hotels, car rentals, and restaurants. It provides real-time data from various APIs, helping users plan and manage their trips easily through an intuitive and user-friendly interface.",
       technologies: [jsIcon, reactNativeIcon],
-      githubLink: "https://github.com/jemishkevadiya/mobile-chat-app",
+      githubLink: "https://github.com/jemishkevadiya/XploreOn_MobileApp/tree/jemish",
     },
     {
-      title: "XploreOn Web App",
-      description: "A travel booking web-app integrating Booking.com APIs with a custom itinerary generator.",
-      technologies: [jsIcon, reactNativeIcon, mongodbIcon],
-      githubLink: "https://github.com/jemishkevadiya/xploreon-travel-app",
+      title: "Flashify",
+      description: "This project allows users to create and organize flashcards manually in folders, generate flashcards using AI based on a chosen topic or text, and interact with the flashcards through AI for enhanced learning and revision.",
+      technologies: [reactNativeIcon],
+      githubLink: "https://github.com/Deep1454/Flashify",
     },
     {
-      title: "E-Commerce Platform",
-      description: "A full-stack e-commerce solution with user authentication, product catalog, and secure payment integration.",
-      technologies: [jsIcon, reactNativeIcon, mongodbIcon],
-      githubLink: "https://github.com/jemishkevadiya/e-commerce-platform",
+      title: "Shopping Cart",
+      description: "The Shopping List App is a SwiftUI iOS app using Core Data to manage shopping lists. Users can create categories with custom tax rates, add items, and generate invoices",
+      technologies: [swiftIcon, xcode],
+      githubLink: "https://github.com/jemishkevadiya/Shopping_List_App",
     },
     {
-      title: "Portfolio Website",
-      description: "A personal portfolio showcasing projects with a dark, neon-accented theme.",
-      technologies: [jsIcon, reactNativeIcon, cssIcon],
-      githubLink: "https://github.com/jemishkevadiya/portfolio-website",
-    },
-    {
-      title: "Task Manager",
-      description: "A productivity app to manage tasks with real-time updates and user collaboration.",
-      technologies: [jsIcon, reactNativeIcon, mongodbIcon],
-      githubLink: "https://github.com/jemishkevadiya/task-manager",
+      title: "Chat App",
+      description: "A simple chat app with JWT-based user login and group chat. Features secure authentication, CORS support, and a responsive interface. Built with Node.js, Express.js, JWT, cors (backend), and HTML/CSS, JavaScript, Bootstrap (frontend), with optional MongoDB/Mongoose for data storage.",
+      technologies: [htmlIcon, bootstrapIcon, cssIcon],
+      githubLink: "https://github.com/jemishkevadiya/chat_app",
     },
   ];
 
@@ -253,7 +260,7 @@ Jemish Kevadiya is a highly skilled and versatile developer with expertise in co
 
       <section id="about" className="about-section">
         <div className="postman-search-bar">
-          <input type="text" placeholder="   GET    |   http://localhost:Jemish/AboutHim " className="search-input" />
+          <input type="text" placeholder="   GET    |   http://localhost:JemishKevadiya/AboutHim " className="search-input" />
           <button onClick={handleSearch} className="search-button">Send</button>
         </div>
         <div className="postman-body-container">
@@ -308,43 +315,67 @@ Jemish Kevadiya is a highly skilled and versatile developer with expertise in co
       </section>
 
       <section id="projects" className="projects-section" ref={projectRef}>
-        <h2 className="section-title">Projects Showcase</h2>
-        <div className="neon-card-gallery">
-          {projects.map((project, index) => (
-            <motion.div
-              key={index}
-              className="neon-card"
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.2, duration: 0.5 }}
-              whileHover={{ scale: 1.05, rotateX: 5 }}
-              onClick={() => setFlipped(flipped === index ? null : index)}
-            >
-              <motion.div
-                className="card-inner"
-                animate={{ rotateY: flipped === index ? 180 : 0 }}
-                transition={{ duration: 0.6 }}
-              >
-                <div className="card-front">
-                  <h3>{project.title}</h3>
-                </div>
-                <div className="card-back">
-                  <h3>{project.title}</h3>
-                  <p>{project.description}</p>
-                  <div className="tech-stack">
-                    {project.technologies.map((tech, i) => (
-                      <img key={i} src={tech} alt="tech" className="tech-icon" />
-                    ))}
-                  </div>
-                  <a href={project.githubLink} target="_blank" rel="noopener noreferrer" className="github-button">
-                    View on GitHub
-                  </a>
-                </div>
-              </motion.div>
-            </motion.div>
-          ))}
+
+        <div className="professional-project">
+          <h3 className="subsection-title">Professional Project</h3>
+          <motion.div
+            className="professional-card"
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            whileHover={{ scale: 1.02 }}
+          >
+            <h4>{professionalProject.title}</h4>
+            <p>{professionalProject.description}</p>
+            <div className="tech-stack">
+              {professionalProject.technologies.map((tech, i) => (
+                <img key={i} src={tech} alt="tech" className="tech-icon" />
+              ))}
+            </div>
+            <a href={professionalProject.githubLink} target="_blank" rel="noopener noreferrer" className="github-button">
+              View on GitHub
+            </a>
+          </motion.div>
         </div>
-        <p className="guideline">Click a card to flip and view details</p>
+
+        <div className="personal-projects">
+          <h3 className="subsection-title">Latest Projects</h3>
+          <div className="neon-card-gallery">
+            {personalProjects.map((project, index) => (
+              <motion.div
+                key={index}
+                className="neon-card"
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.2, duration: 0.5 }}
+                onClick={() => setFlipped(flipped === index ? null : index)}
+              >
+                <motion.div
+                  className="card-inner"
+                  animate={{ rotateY: flipped === index ? 180 : 0 }}
+                  transition={{ duration: 0.6 }}
+                >
+                  <div className="card-front">
+                    <h3>{project.title}</h3>
+                  </div>
+                  <div className="card-back">
+                    <h3>{project.title}</h3>
+                    <p>{project.description}</p>
+                    <div className="tech-stack">
+                      {project.technologies.map((tech, i) => (
+                        <img key={i} src={tech} alt="tech" className="tech-icon" />
+                      ))}
+                    </div>
+                    <a href={project.githubLink} target="_blank" rel="noopener noreferrer" className="github-button">
+                      View on GitHub
+                    </a>
+                  </div>
+                </motion.div>
+              </motion.div>
+            ))}
+          </div>
+          <p className="guideline">Click a card to flip and view details</p>
+        </div>
       </section>
 
       <section id="contact" className="contact-section">

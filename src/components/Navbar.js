@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
 import "./Navbar.css";
 
@@ -7,7 +7,6 @@ const Navbar = () => {
   const [toggle, setToggle] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState(null);
-  const location = useLocation();
   const sectionRefs = useRef({});
 
   useEffect(() => {
@@ -51,7 +50,6 @@ const Navbar = () => {
     setToggle(false);
   };
 
-  // Store refs for sections
   useEffect(() => {
     navItems.forEach((item) => {
       const sectionId = item.path.split("#")[1];
